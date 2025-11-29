@@ -1,0 +1,62 @@
+<!-- scope:ye nkyan hota hai ki jaha tak variable ki maccess reh sakti hai that is meaning of scope  -->
+
+<!-- functionalScope,block scope and global scope -->
+ <!-- function:sirf uss functioon mrein usde ho sakti hai  -->
+  <!-- block:inside curly braces hi use ho skti hai -->
+   <!-- global :poore code mein kahi bhi -->
+
+<!-- Execution Context:matlab ye hai ki agar aap jab bhi function banatae ho taqb kya hota hai ek box type ka banat hai jisko klahte hai execution contexct like in java jasie hota tha function call karne mein wo stack mein chala jaata tha ussiu tarah -->
+ <!-- ab uss execution context mein 2 pohases hote hai that is first one is memory phase and secopnd one is execution phase -->
+
+ <!-- 1:memory phase mein saaare vaiables aake store hote hai sasare destails jo bhi functions mein use hote hai -->
+  <!-- 2:execution phase:ismein saare function jo hai wo exceute hote hai -->
+
+  <!-- ####Lexical Scoping (Short Definition):
+
+Lexical scoping ka matlab hota hai: variable ka scope uski code mein physical location (jaha likha gaya hai) se decide hota hai — na ki function call hone se.
+
+Ya simple:
+
+Inner function hamesha apne outer function ke variables ko access kar sakta hai. -->
+
+<!-- function outer() {
+    let x = 10;
+
+    function inner() {
+        console.log(x);  // inner can access x from outer
+    }
+
+    inner();
+}
+
+outer();
+Explanation:
+
+inner() function outer function ke andar likha hua hai,
+
+Isliye inner() ko lexically (by location in code) outer ke variables mil jaate hain.
+
+Output: 10 -->
+
+<!--### CLOSURES -->
+<!-- jab ek outer fnc ke andar ek inner functiuon hota hai and inner wala function jo hai use karein apne bahar wale function ke variables ko -->
+
+<!-- function outer() {
+    let count = 0;
+
+    return function inner() {
+        count++;
+        console.log(count);
+    };
+}
+
+dekho mein smajhata hhon like jaise hum ek function kuch return karte hai toh wo value aati hai lekin ayaha hum ek function hi return kar rahe hai
+toh when you run
+outer()?toh ye function ko call karne pe ismein ek function aaya because whai return huw ahia wah se
+ab isko chalanae ke liye huemin isse ek variable mein store karmna hopga 
+let fnc=outer();{inner function store huwa hai ismein}
+fnc();?{ab inner function chjal;a therfore we get 1}
+fnc()?2 beacuse humara wo bvcraible jo hai wo store hai pahle se hi 
+
+<!-- LEKIN YAHAI TOH MAIN JAADFU HAI BEACUSE JAISE AAPKE FUNCTION CHALA JO KI OUTER() waise hi wo functyion stack se kahali ho jaata hai and humein jo aana chaiye tha a ki value wo undefined aana chahiye tha lekin answer aaya ahai 1 -->
+ 

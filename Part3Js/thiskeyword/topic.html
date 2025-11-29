@@ -1,0 +1,142 @@
+<!-- this keyword:ek special keyword hai jaisa use usko kiya gaya gaya uske hisab se hota hai -->
+
+<!-- AB DEKHTE HAI IN DFIFFERNT CONTEXCT KYA VALUE HOGI HUMARE THIS KI -->
+
+<!-- 1:WHEN YOU PRINT THIS GLOBALLY -->
+ 
+Here is the **cleanest, shortest, exam-friendly explanation** of **`this` keyword in JavaScript** in **different places**:
+(Global, method, function, arrow function).
+
+---
+
+# 🚀 **1. Global Scope**
+
+```js
+console.log(this);
+```
+
+### **Browser:**
+
+`this` → **window**
+
+### **Node.js:**
+
+`this` → **empty object `{}`**
+
+---
+
+# 🚀 **2. Simple Function (Normal Function)**
+
+```js
+function test() {
+    console.log(this);
+}
+test();
+```
+
+### **Value:**
+
+In **strict mode** → `undefined`
+In **non-strict mode** → `window` (browser)
+
+---
+
+# 🚀 **3. Method Inside Object**
+
+```js
+const obj = {
+    name: "A",
+    show() {
+        console.log(this.name);
+    }
+};
+obj.show();
+```
+
+### **Value:**
+
+`this` → **that object (obj)**
+Because function **object ke through call hua** hai.
+
+---
+
+# 🚀 **4. Arrow Function**
+
+```js
+const obj = {
+    name: "A",
+    show: () => {
+        console.log(this);
+    }
+};
+obj.show();
+```
+
+### **Value:**
+
+Arrow function ka apna `this` **hota hi nahi**.
+Wo **jaha likha gaya hai** waha ke `this` ko use karta hai (lexically inherit).
+
+Browser mein → `window`
+Node mein → `{}`
+
+---
+
+# 🚀 **5. Arrow Function Inside Method**
+
+```js
+const obj = {
+    name: "A",
+    show() {
+        const inner = () => {
+            console.log(this.name);
+        };
+        inner();
+    }
+};
+obj.show();
+```
+
+### **Value:**
+
+`inner()` ka this → **obj**,
+because arrow function `this` ko **lexically (outer function se)** inherit karta hai.
+
+---
+
+# 🚀 **6. Constructor Function**
+
+```js
+function Person(name) {
+    this.name = name;
+}
+const p = new Person("A");
+```
+
+<!-- Overall  -->
+ <!-- global:window ,function:window ,method(jab bhi opbject ke andar function hota hai usko method bolet hai):wo object poora ike  -->
+  <!-- event listener mein:jiske karan wo addeventlistener lagaya huwa hai that is  -->
+
+  <!-- important cheez if you dont want ot teneember these  -->
+   <!-- dekho kya hota hai ki ek arrow function hamesha this ki value aPNE Functino se leta hai  -->
+
+   onst obj = {
+    name: "A",
+    show() {
+        const inner = () => {
+            console.log(this.name);
+        };
+        inner();
+    }
+};
+obj.show();
+<!-- ```jaise yaha pe kya hai inner funxction arrow function hai and wo value lete hai apne function se and shopw function ke uske just outrer hai uskoi value this ki kya hai that is poora object -->
+
+<!-- const obj = {
+    name: "A",
+    show: () => {
+        console.log(this);
+    }
+};
+obj.show(); -->
+<!-- directly wale mein kya dikkat hai ki huemin jo arrow function hai wo value lega apone function se aur uska function hai obj and obj ki value of this is window  -->
